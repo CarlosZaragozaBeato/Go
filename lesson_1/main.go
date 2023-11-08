@@ -42,4 +42,10 @@ func third_function() {
 	var fourth_bytes uint64 = 4751
 
 	fmt.Println(one_bytes, two_bytes, three_bytes, fourth_bytes)
+
+	// float
+	var score_one float32 = 2.54
+	var score_two float64 = 45281055.2
+
+	fmt.Println(score_one, score_two)
 }
