@@ -3,49 +3,41 @@ package main
 import "fmt"
 
 func main() {
-	//second_function()
-	third_function()
 
-}
+	// string variables
+	var nameOne string = "mario"
+	var nameTwo = "luigi"
+	var nameThree string
 
-// func second_function() {
-// 	fmt.Println("Second Function call")
-// }
+	fmt.Print(nameOne, nameTwo, nameThree)
 
-func third_function() {
+	nameOne = "peach"
+	nameThree = "bowser"
 
-	// strings
-	var name_one string = "carlos"
-	var name_two = "fenomeno"
-	var name_three string
+	fmt.Print(nameOne, nameTwo, nameThree)
 
-	fmt.Println(name_one, name_two, name_three)
+	// the following is allowed inside functions only
+	nameFour := "yoshi"
+	fmt.Print(nameFour)
 
-	name_two = "Gaucho"
+	// int variables
+	var ageOne int = 20
+	var ageTwo = 30
+	ageThree := 40
 
-	fmt.Println(name_one, name_two, name_three)
+	fmt.Print(ageOne, ageTwo, ageThree)
 
-	name_four := "EL FENOMENO || GAUCHO"
-	fmt.Println(name_four)
+	// bits & memory
+	// var numOne int8 = 25
+	// var numTwo int8 = 128 // too large a number for 8-bit
+	// var numTwo uint = -25 unsigned ints cannot be negative
 
-	// ints
-	var age_one int = 18
-	var age_two = 22
-	age_three := 44
+	var scoreOne float32 = 25.98
+	var scoreTwo float64 = 1965385877.5
+	var scoreThree = 1.5 // inferred as float64
 
-	fmt.Println(age_one, age_two, age_three)
+	fmt.Print(scoreOne, scoreTwo, scoreThree)
 
-	// int bytes
-	var one_bytes int8 = 8
-	var two_bytes int16 = 44
-	var three_bytes int32 = 4751
-	var fourth_bytes uint64 = 4751
+	// for more info see https://golang.org/ref/spec#Numeric_types
 
-	fmt.Println(one_bytes, two_bytes, three_bytes, fourth_bytes)
-
-	// float
-	var score_one float32 = 2.54
-	var score_two float64 = 45281055.2
-
-	fmt.Println(score_one, score_two)
 }
