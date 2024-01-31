@@ -17,11 +17,15 @@ y devolver el hexadecimal , si no restarle uno y seguir
 /* PASO 1: COMPLETADO
    -> COMPROBAR EL PASO DE STRING A Sha256
 */
+/* PASO 2:
+-> GENERACION DE NUMERO A HEX DE 64
+*/
 
 import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
+	"math/big"
 )
 
 const NEXT_SEED_SHA = "f076e89b3c65076aa9331ee5a10b07eb4c3a01dba7296223bef7bfd735c82ecc"
@@ -32,11 +36,23 @@ const (
 )
 
 func main() {
-	temp_seed := "364fb971ae36ad3b3766b1acda67ef394a2cbdd492f6d76d66737d04c9b0f1d9"
+	// temp_seed := "364fb971ae36ad3b3766b1acda67ef394a2cbdd492f6d76d66737d04c9b0f1d9"
+	// num_temp := 28200103311205173000000000000000000
+	numero := "17625064569503233297192216803934208"
 
-	// hashear teep seed y compararlo con el PREVIOUS_SEED_SHA
-	data := read_sha(temp_seed)
-	fmt.Println(data)
+	num_temp := new(big.Int)
+	num_temp.SetString(numero, 10)
+
+	// Convertir el número a cadena
+	numeroComoCadena := num_temp.String()
+	fmt.Println(numeroComoCadena)
+
+	// Añadir ceros a la izquierda hasta alcanzar una longitud de 64
+	numero_64 := fmt.Sprintf("%064s", numeroComoCadena)
+	fmt.Println(numero_64)
+
+	// Procesar el hash SHA (reemplace esto con su implementación real)
+	read_sha(numero_64)
 }
 
 func read_sha(seed string) string {
@@ -54,3 +70,28 @@ func read_sha(seed string) string {
 	}
 	return temp_seed_sha
 }
+
+/*
+* package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	// Número en formato hexadecimal
+	numeroHex := "1a"
+
+	// Convertir a decimal
+	numeroDecimal, err := strconv.ParseInt(numeroHex, 16, 64)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	// Imprimir el resultado
+	fmt.Println("Número en decimal:", numeroDecimal)
+}
+* */
