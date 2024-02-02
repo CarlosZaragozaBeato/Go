@@ -38,21 +38,36 @@ const (
 func main() {
 	// temp_seed := "364fb971ae36ad3b3766b1acda67ef394a2cbdd492f6d76d66737d04c9b0f1d9"
 	// num_temp := 28200103311205173000000000000000000
+	// Convertir el número a cadena
+	// Añadir ceros a la izquierda hasta alcanzar una longitud de 64
+	//cadenaHex := hex.EncodeToString([]byte(numero_64))
+
+	cadenaString := read_string_hex()
+	fmt.Println(cadenaString)
+
+	bytes := []byte(cadenaString)
+
+	// Codifica el slice de bytes a hexadecimal
+	hexEncoded := hex.EncodeToString(bytes)
+
+	fmt.Println(hexEncoded)
+
+	// Procesar el hash SHA (reemplace esto con su implementación real)
+	// read_sha(cadenaHex)
+}
+
+func read_string_hex() string {
 	numero := "17625064569503233297192216803934208"
 
 	num_temp := new(big.Int)
 	num_temp.SetString(numero, 10)
 
-	// Convertir el número a cadena
 	numeroComoCadena := num_temp.String()
 	fmt.Println(numeroComoCadena)
 
-	// Añadir ceros a la izquierda hasta alcanzar una longitud de 64
-	numero_64 := fmt.Sprintf("%064s", numeroComoCadena)
-	fmt.Println(numero_64)
-
-	// Procesar el hash SHA (reemplace esto con su implementación real)
-	read_sha(numero_64)
+	numero_full := fmt.Sprintf("%064s", numeroComoCadena)
+	fmt.Println(numero_full)
+	return numero_full
 }
 
 func read_sha(seed string) string {
